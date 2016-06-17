@@ -1,0 +1,27 @@
+<div>
+    <div class="col-lg-8">
+        <h3>Welcome {{yourname}}</h3>
+        <file-image content="image.content" ngayup="image.ngayup" tenhinh="image.tenhinh"></file-image>
+        <button ng-click="save()">Upload Image</button>
+    </div>
+    <div class="col-lg-4">
+        <a class="btn btn-primary" ng-href="#/view" role="button">View Images</a>
+    </div>
+
+
+</div>
+<div>
+    <table ng-table="tableParams" class="table ng-table-responsive">
+        <tr ng-repeat="image in $data track by $index">
+            <td data-title="'TenHinh'" sortable="'tenhinh'">
+                {{image.tenhinh}}
+            </td>
+            <td data-title="'NguoiUp'" sortable="'nguoiup'">
+                {{image.nguoiup}}
+            </td>
+            <td data-title="'NgayUp'" sortable="'ngayup'">
+                {{image.ngayup}}
+            </td>
+        </tr>
+    </table>
+</div>
