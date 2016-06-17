@@ -18,12 +18,10 @@ imageApp.config(['$locationProvider', '$routeProvider', function($locationProvid
 }]);
 
 imageApp.controller('userCtrl', function($scope) {
-    // create a message to display in our view
     $scope.yourname = '';
 });
 
 imageApp.controller('imageCtrl', ['$scope', '$http', '$routeParams', 'NgTableParams', '$filter', function($scope, $http, $routeParams, NgTableParams, $filter) {
-    // create a message to display in our view
     $scope.yourname = $routeParams.yourname;
     $scope.imaglink = 'data/images';
     $scope.image = {
@@ -80,7 +78,7 @@ imageApp.controller('viewCtrl', ['$scope', '$http', function($scope, $http) {
             $scope.images = res.data;
         });
     }
-    $scope.zoomLvl = 4;
+    //$scope.zoomLvl = 4;
 
 }]);
 
