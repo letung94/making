@@ -1,18 +1,15 @@
 <h4>View Gallary</h4>
 
-<div id="imgeview" class="carousel slide col-lg-6" data-ride="carousel" ng-init="getImages()">
+<div id="imgeview" class="carousel slide" data-ride="carousel" ng-init="getImages()">
     <!-- Indicators -->
-    <ol class="carousel-indicators">
+    <!--ol class="carousel-indicators">
         <li data-target="#imgeview" data-slide-to="{{$index}}" ng-repeat="image in images track by $index" ng-class="$index == 0 ? 'active':''"></li>
-    </ol>
+    </ol-->
 
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
         <div class="item" ng-repeat="image in images track by $index" ng-class="$index == 0 ? 'active':''">
-            <img ng-src="{{image.content}}" alt="{{image.tenhinh}}" style="margin: auto; width: 70%;">
-            <div class="carousel-caption">
-                {{image.nguoiup}}
-            </div>
+            <img ng-src="{{image.content}}" alt="{{image.tenhinh}}" ng-click="imgClick(image.content)">
         </div>
     </div>
 
@@ -26,6 +23,6 @@
         <span class="sr-only">Next</span>
     </a>
 </div>
-<div class="col-lg-6">
-    <!--zoom mark-height="100" mark-width="100" src="{{src}}" zoom-lvl="{{zoomLvl}}"></zoom-->
+<div class="col-lg-12">
+    <zoom mark-height="100" mark-width="100" src="{{src}}" zoom-lvl="{{zoomLvl}}"></zoom>
 </div>

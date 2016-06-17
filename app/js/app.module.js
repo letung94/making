@@ -76,10 +76,15 @@ imageApp.controller('viewCtrl', ['$scope', '$http', function($scope, $http) {
     $scope.getImages = function() {
         $http.get('http://localhost:3000/data/image.json').then(function(res) {
             $scope.images = res.data;
+            $scope.src = $scope.images[0].content;
         });
     }
-    //$scope.zoomLvl = 4;
+    $scope.zoomLvl = 4;
 
+    $scope.imgClick = function(src) {
+        console.log(src);
+        $scope.src = src;
+    }
 }]);
 
 imageApp.directive('fileImage', function() {
@@ -126,7 +131,7 @@ imageApp
 
             $(element).append(mark);
 
-            element
+            originalImg
                 .on('mouseenter', function(evt) {
                     mark.removeClass('hide');
 
@@ -207,10 +212,10 @@ imageApp
                 zoomLvl: "@zoomLvl"
             },
             template: [
-                '<div class="original">',
+                '<div class="original col-lg-4">',
                 '<img ng-src="{{src}}"/>',
                 '</div>',
-                '<div class="zoomed">',
+                '<div class="zoomed col-lg-6">',
                 '<img/>',
                 '</div>'
             ].join(''),
